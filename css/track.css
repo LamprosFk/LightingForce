@@ -1,0 +1,118 @@
+.track {
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .track-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+  }
+  
+  .track-form input {
+    padding: 12px;
+    font-size: 16px;
+  }
+  
+  .track-form button {
+    padding: 12px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .track-result {
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  /* Progress Bar για το αποτέλεσμα */
+  .progress-bar {
+    background: #eee;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 20px;
+    height: 30px;
+  }
+  
+  .progress {
+    background: #007bff;
+    height: 100%;
+    line-height: 30px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    transition: width 0.5s ease;
+  }
+  .track {
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .track-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+  }
+  
+  .track-form input {
+    padding: 12px;
+    font-size: 16px;
+  }
+  
+  .track-form button {
+    padding: 12px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .track-result {
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .track-info {
+    margin: 10px 0 30px;
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .faq, .support, .testimonials {
+    margin-top: 50px;
+    text-align: left;
+  }
+  
+  .faq details {
+    margin-bottom: 15px;
+  }
+  
+  .faq summary {
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .support, .testimonials {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .testimonials p {
+    margin-top: 10px;
+  }
+  

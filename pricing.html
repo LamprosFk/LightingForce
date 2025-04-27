@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Τιμοκατάλογος | LightingForceCourier</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/pricing.css" />
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1 class="logo">⚡ LightingForceCourier</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Αρχική</a></li>
+          <li><a href="services.html">Υπηρεσίες</a></li>
+          <li><a href="pricing.html" class="active">Τιμές</a></li>
+          <li><a href="track.html">Εντοπισμός</a></li>
+          <li><a href="contact.html">Επικοινωνία</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="pricing">
+    <h2>Τιμοκατάλογος Αποστολών</h2>
+
+    <div class="pricing-grid">
+      <a href="create.html" class="price-card">
+        <h3>📍 Εντός Πόλης</h3>
+        <p>Αυθημερόν / Επόμενη μέρα</p>
+        <div class="price">3.00€</div>
+      </a>
+
+      <a href="create.html" class="price-card">
+        <h3>📦 Εντός Ελλάδας</h3>
+        <p>1-2 εργάσιμες ημέρες</p>
+        <div class="price">5.00€</div>
+      </a>
+
+      <a href="create.html" class="price-card">
+        <h3>🌍 Εξωτερικό</h3>
+        <p>Express ή Economy επιλογές</p>
+        <div class="price">Από 15.00€</div>
+      </a>
+
+      <a href="create.html" class="price-card">
+        <h3>🇨🇾 Κύπρος</h3>
+        <p>Express & Economy</p>
+        <div class="price">Από 9.00€</div>
+      </a>
+    </div>
+
+    <!-- ΜΗ-CLICKABLE Πρόσθετες Υπηρεσίες -->
+    <div class="price-card" style="margin: 40px auto; max-width: 400px;">
+      <h3>🔧 Πρόσθετες Υπηρεσίες</h3>
+      <ul style="text-align:left; padding-left:20px;">
+        <li>Αντικαταβολή +2.00€</li>
+        <li>SMS ειδοποίηση +0.50€</li>
+        <li>Ασφάλιση αποστολής +1%</li>
+      </ul>
+    </div>
+
+    <!-- 🔥 Υπολογισμός Κόστους -->
+    <section class="cost-calculator">
+      <h2>Υπολογισμός Κόστους Αποστολής</h2>
+      <form id="cost-form">
+    
+        <div class="form-group">
+          <label>Προορισμός:</label>
+          <select id="destination" required>
+            <option value="3">Εντός Πόλης (3€)</option>
+            <option value="5">Εντός Ελλάδας (5€)</option>
+            <option value="9">Κύπρος (9€)</option>
+            <option value="15">Εξωτερικό (15€)</option>
+          </select>
+        </div>
+    
+        <div class="form-group">
+          <label>Υπηρεσία:</label>
+          <select id="service-type" required>
+            <option value="0">Economy (0€)</option>
+            <option value="5">Express (+5€)</option>
+          </select>
+        </div>
+    
+        <div class="form-group">
+          <label>Πρόσθετες Υπηρεσίες:</label><br>
+          <input type="checkbox" id="cod" value="2"> Αντικαταβολή (+2€)<br>
+          <input type="checkbox" id="insurance" value="1"> Ασφάλιση (+1€)<br>
+          <input type="checkbox" id="sms" value="0.5"> Ειδοποίηση SMS (+0.5€)
+        </div>
+    
+        <button type="submit" class="cta-button">Υπολόγισε Κόστος</button>
+    
+      </form>
+      <div id="cost-modal" class="modal">
+        <div class="modal-content">
+          <span class="close-btn">&times;</span>
+          <h2>Συνολικό Κόστος</h2>
+          <p id="modal-cost-result"></p>
+        </div>
+      </div>
+      <div id="cost-result" style="margin-top:20px; font-size:20px; font-weight:bold;"></div>
+    </section>
+    <!-- Call to action -->
+    <div class="pricing-cta">
+      <h3>Χρειάζεστε ειδική μεταφορά ή χονδρικές τιμές;</h3>
+      <p>Επικοινωνήστε μαζί μας για προσαρμοσμένες λύσεις!</p>
+      <a href="contact.html" class="cta-button">Επικοινωνία</a>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 LightingForceCourier | Powered by ταχύτητα ⚡</p>
+  </footer>
+
+  <script src="/js/srcipt.js"></script>
+</body>
+</html>

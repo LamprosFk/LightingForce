@@ -1,0 +1,42 @@
+.create {
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .create-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+  }
+  
+  .create-form input,
+  .create-form select {
+    padding: 12px;
+    font-size: 16px;
+  }
+  
+  .create-form button {
+    padding: 12px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .form-group {
+    margin-top: 20px;
+    text-align: left;
+  }
+  
+  .submission-result {
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    color: green;
+  }
+  

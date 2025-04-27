@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Εντοπισμός Αποστολής | LightingForceCourier</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/track.css">
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1 class="logo">⚡ LightingForceCourier</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Αρχική</a></li>
+          <li><a href="services.html">Υπηρεσίες</a></li>
+          <li><a href="pricing.html">Τιμές</a></li>
+          <li><a href="track.html" class="active">Εντοπισμός</a></li>
+          <li><a href="contact.html">Επικοινωνία</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="track">
+    <h2>Εντοπισμός Αποστολής</h2>
+
+    <p class="track-info">
+      Εισάγετε τον αριθμό αποστολής που λάβατε μέσω SMS ή Email για να δείτε την πορεία του δέματός σας!
+    </p>
+
+    <form id="tracking-form" class="track-form">
+      <input type="text" id="tracking-number" placeholder="Εισάγετε αριθμό αποστολής" required>
+      <button type="submit" class="cta-button">Αναζήτηση</button>
+    </form>
+
+    <div id="tracking-result" class="track-result"></div>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+      <h3>Συχνές Ερωτήσεις</h3>
+      <details>
+        <summary>❓ Δεν βρίσκω την αποστολή μου. Τι να κάνω;</summary>
+        <p>Βεβαιωθείτε ότι εισάγετε σωστά τον αριθμό αποστολής όπως σας στάλθηκε μέσω SMS ή Email.</p>
+      </details>
+      <details>
+        <summary>❓ Πόσο συχνά ενημερώνεται η κατάσταση;</summary>
+        <p>Οι πληροφορίες ενημερώνονται αυτόματα κάθε 30 λεπτά.</p>
+      </details>
+      <details>
+        <summary>❓ Μπορώ να αλλάξω τη διεύθυνση παραλαβής;</summary>
+        <p>Ναι, εφόσον το δέμα δεν έχει φύγει για διανομή. Καλέστε την υποστήριξη μας!</p>
+      </details>
+    </section>
+
+    <!-- Support Contact -->
+    <section class="support">
+      <h3>Χρειάζεστε βοήθεια;</h3>
+      <p>📞 Καλέστε μας: <strong>210-1234567</strong></p>
+      <p>📧 Email: <strong>support@lightingforcecourier.gr</strong></p>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+      <h3>Τι λένε οι πελάτες μας</h3>
+      <p>⭐⭐⭐⭐⭐ "Άμεση ενημέρωση και παράδοση στην ώρα της!" - Μαρία Λ.</p>
+      <p>⭐⭐⭐⭐⭐ "Το tracking ήταν ακριβές και αξιόπιστο!" - Γιάννης Π.</p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 LightingForceCourier | Powered by ταχύτητα ⚡</p>
+  </footer>
+
+  <script src="js/track.js"></script>
+</body>
+</html>
