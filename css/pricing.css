@@ -1,59 +1,73 @@
+/* Τιμοκατάλογος - Grid */
 .pricing-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 25px;
-    justify-content: center;
-    margin-top: 40px;
-  }
-  
-  .price-card {
-    background: white;
-    border: 1px solid #ddd;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-    min-width: 250px;
-    max-width: 300px;
-    flex: 1;
-    text-align: center;
-    text-decoration: none;
-    color: inherit;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  
-  .price-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    cursor: pointer;
-  }
-  
-  .price-card .price {
-    font-size: 28px;
-    font-weight: bold;
-    margin-top: 10px;
-    color: #2e7d32;
-  }
-  .pricing-cta {
-    text-align: center;
-    margin: 60px auto 40px;
-    max-width: 600px;
-  }
-  .cost-calculator {
-    background: #ffffff;
-    padding: 30px;
-    margin-top: 60px;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-  }
-  
-  .form-group {
-    margin-bottom: 20px;
-  }
-  /* Modal */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+/* Κάρτες Τιμών */
+.price-card {
+  background: white;
+  border: 1px solid #ddd;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  min-width: 250px;
+  max-width: 300px;
+  flex: 1;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.price-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  cursor: pointer;
+}
+
+.price-card .price {
+  font-size: 28px;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #2e7d32;
+}
+
+/* Προτροπή επικοινωνίας */
+.pricing-cta {
+  text-align: center;
+  margin: 60px auto 40px;
+  max-width: 600px;
+}
+
+/* Φόρμα Υπολογισμού Κόστους */
+.cost-calculator {
+  background: #ffffff;
+  padding: 30px;
+  margin-top: 60px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-weight: 500;
+  display: block;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+/* Modal */
 .modal {
   display: none;
   position: fixed;
@@ -87,4 +101,25 @@
 
 .close-btn:hover {
   color: black;
+}
+
+/* 🔥 DARK MODE για pricing */
+body[data-theme="dark"] .price-card,
+body[data-theme="dark"] .cost-calculator,
+body[data-theme="dark"] .modal-content {
+  background-color: #1f1f1f;
+  color: #f1f1f1;
+  border-color: #333;
+}
+
+body[data-theme="dark"] .price-card .price {
+  color: #ffc107;
+}
+
+body[data-theme="dark"] .close-btn {
+  color: #ccc;
+}
+
+body[data-theme="dark"] .close-btn:hover {
+  color: white;
 }

@@ -1,171 +1,174 @@
 .contact {
-    max-width: 800px;
-    margin: auto;
-    padding: 40px 20px;
-    background-color: #f9f9f9;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  }
-  
-  .contact h2 {
-    text-align: center;
-    font-size: 32px;
-    margin-bottom: 30px;
-  }
-  
-  .contact-form {
-    margin-bottom: 40px;
-  }
-  
-  .contact-form label {
-    font-size: 16px;
-    font-weight: bold;
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  .contact-form input, 
-  .contact-form textarea {
-    width: 100%;
-    padding: 12px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    margin-bottom: 20px;
-  }
-  
-  .contact-form button {
-    padding: 12px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  
-  .contact-form button:hover {
-    background-color: #0056b3;
-  }
-  
-  .contact-info h3 {
-    text-align: center;
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  .contact-info p {
-    text-align: center;
-    font-size: 18px;
-  }
-  
-  .contact-info a {
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  .contact-info a:hover {
-    text-decoration: underline;
-  }
-  /* Στυλ Modal */
-.modal {
-    display: none; /* Κρύβουμε το modal στην αρχή */
-    position: fixed;
-    z-index: 1000;
-    padding-top: 100px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.5); /* Μαύρη διαφάνεια */
-  }
-  
-  .modal-content {
-    background-color: white;
-    margin: auto;
-    padding: 20px;
-    border-radius: 10px;
-    width: 80%;
-    max-width: 500px;
-    text-align: center;
-  }
-  
-  .close-btn {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  
-  .close-btn:hover {
-    color: black;
-  }
-  /* FAQ */
+  max-width: 800px;
+  margin: auto;
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.contact h2 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+/* ---------------- Φόρμα Επικοινωνίας ---------------- */
+.contact-form {
+  margin-bottom: 40px;
+}
+
+.contact-form label {
+  font-size: 16px;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Light και base theme inputs */
+.contact-form input,
+.contact-form textarea,
+.newsletter input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #f7f7f7;
+  color: #333;
+  margin-bottom: 20px;
+  box-shadow: none;
+  transition: border-color 0.2s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus,
+.newsletter input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Buttons */
+.contact-form button,
+.newsletter button {
+  padding: 12px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.contact-form button:hover,
+.newsletter button:hover {
+  background-color: #0056b3;
+}
+
+/* ---------------- Στοιχεία Επικοινωνίας ---------------- */
+.contact-info {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.contact-info h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.contact-info p {
+  font-size: 18px;
+}
+
+.contact-info a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+/* ---------------- FAQ ---------------- */
 .faq {
-    margin-top: 40px;
-  }
-  
-  .faq details {
-    margin-bottom: 10px;
-  }
-  
-  .faq summary {
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  
-  .faq p {
-    font-size: 16px;
-    margin-top: 10px;
-  }
-  
-  /* Συνεργασίες */
-  .partners {
-    margin-top: 40px;
-    text-align: center;
-  }
-  
-  .partners img {
-    width: 150px;
-    height: auto;
-    margin: 10px;
-  }
-  
-  /* Newsletter */
-  .newsletter {
-    margin-top: 40px;
-    text-align: center;
-  }
-  
-  .newsletter input {
-    padding: 10px;
-    font-size: 16px;
-    width: 60%;
-    max-width: 400px;
-    border-radius: 5px;
-    margin-right: 10px;
-  }
-  
-  .newsletter button {
-    padding: 12px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  
-  /* Πληροφορίες για την Εταιρεία */
-  .about-us {
-    margin-top: 40px;
-    text-align: center;
-  }
-  
-  .about-us p {
-    font-size: 16px;
-    margin-top: 10px;
-  }
-  
+  margin-top: 50px;
+}
+
+.faq details {
+  margin-bottom: 15px;
+  background: #f1f1f1;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.faq summary {
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.faq p {
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+/* ---------------- Συνεργάτες ---------------- */
+.partners {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.partners img {
+  width: 150px;
+  height: auto;
+  margin: 10px;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* ---------------- Newsletter ---------------- */
+.newsletter {
+  margin-top: 50px;
+  text-align: center;
+}
+
+/* ---------------- About ---------------- */
+.about-us {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.about-us p {
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+/* ---------------- DARK THEME ---------------- */
+body[data-theme="dark"] .contact {
+  background-color: #1f1f1f;
+  color: #f1f1f1;
+}
+
+body[data-theme="dark"] .contact-form input,
+body[data-theme="dark"] .contact-form textarea,
+body[data-theme="dark"] .newsletter input {
+  background-color: #2a2a2a;
+  color: #f1f1f1;
+  border-color: #444;
+}
+
+body[data-theme="dark"] .faq details {
+  background-color: #2a2a2a;
+  color: #f1f1f1;
+}
+
+body[data-theme="dark"] .faq summary {
+  color: #ffc107;
+}
+
+body[data-theme="dark"] .contact-form input:focus,
+body[data-theme="dark"] .contact-form textarea:focus,
+body[data-theme="dark"] .newsletter input:focus {
+  border-color: #ffc107;
+  background-color: #2a2a2a;
+}

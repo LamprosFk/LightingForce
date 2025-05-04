@@ -5,12 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Υπηρεσίες | LightingForceCourier</title>
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/services.css" />
+  <link rel="stylesheet" href="css/services.css">
 </head>
-<body>
+<body data-theme="light">
   <header>
     <div class="container">
-      <h1 class="logo">⚡ LightingForceCourier</h1>
+      <h1 class="logo">⚡ LightingForce Courier</h1>
+      <button class="menu-toggle" aria-label="Άνοιγμα Μενού">☰</button>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Εναλλαγή Θέματος">🌙</button>
       <nav>
         <ul>
           <li><a href="index.html">Αρχική</a></li>
@@ -23,13 +25,14 @@
       </nav>
     </div>
   </header>
+
   <main class="services">
     <h2>Οι Υπηρεσίες μας</h2>
-    <p style="text-align:center; max-width:700px; margin:0 auto 30px;">
+    <p class="intro">
       Στοχεύουμε στη συνεχή εξέλιξη και παρέχουμε καινοτόμες λύσεις μεταφοράς για ιδιώτες και επιχειρήσεις.
     </p>
-  
-    <!-- 🔹 Γρήγορη επισκόπηση -->
+
+    <!-- Γρήγορη επισκόπηση -->
     <section class="service-grid">
       <div class="service-box">
         <h3>🚚 Αυθημερόν</h3>
@@ -44,62 +47,71 @@
         <p>Ασφάλιση αποστολών, αντικαταβολή, tracking και ειδοποιήσεις SMS.</p>
       </div>
     </section>
-  
-    <!-- 🔽 Αναλυτική Παρουσίαση -->
-    <section>
+
+    <!-- Αναλυτική Παρουσίαση -->
+    <section class="detailed-services">
       <h3>Πώς μπορώ να στείλω ένα δέμα</h3>
-  
-      <h4>📍 ΕΝΤΟΣ ΠΟΛΗΣ</h4>
-      <ul>
-        <li>Αυθημερόν Παραδόσεις (1 έως 5 ώρες)</li>
-        <li>Απογευματινές παραδόσεις (μετά τις 17:00)</li>
-        <li>Παραδόσεις Σάββατο</li>
-        <li>Παραδόσεις επόμενης μέρας</li>
-        <li>Πρωινές παραδόσεις (έως τις 10:00 ή 12:00)</li>
-        <li>Παραδόσεις κατόπιν ραντεβού</li>
-        <li>Παραδόσεις Κυριακή & Αργίες</li>
-      </ul>
-  
-      <h4>🇬🇷 ΕΝΤΟΣ ΕΛΛΑΔΑΣ</h4>
-      <ul>
-        <li>Αυθημερόν παραδόσεις (κατόπιν συνεννόησης)</li>
-        <li>Παραδόσεις επόμενης μέρας</li>
-        <li>Πρωινές / απογευματινές παραδόσεις</li>
-        <li>Παραδόσεις κατόπιν ραντεβού</li>
-        <li>Παραδόσεις Σάββατο, Κυριακή & Αργίες</li>
-      </ul>
-  
-      <h4>🇨🇾 ΚΥΠΡΟΣ</h4>
-      <ul>
-        <li>Express: 1 έως 3 εργάσιμες ημέρες</li>
-        <li>Economy: 4 έως 7 εργάσιμες ημέρες</li>
-      </ul>
-  
-      <h4>🌍 ΕΞΩΤΕΡΙΚΟ</h4>
-      <ul>
-        <li>Express: από την επόμενη εργάσιμη</li>
-        <li>Economy: 4 έως 7 εργάσιμες ημέρες</li>
-      </ul>
-  
-      <h4>🔧 Πρόσθετες Παροχές</h4>
-      <ul>
-        <li>Αντικαταβολή / είσπραξη μετρητών</li>
-        <li>Ενημέρωση μέσω E-mail & SMS</li>
-        <li>Ασφάλιση αποστολών</li>
-        <li>Υπηρεσία αερομεταφοράς</li>
-      </ul>
+
+      <div class="service-group">
+        <h4>📍 ΕΝΤΟΣ ΠΟΛΗΣ</h4>
+        <ul>
+          <li>Αυθημερόν Παραδόσεις (1 έως 5 ώρες)</li>
+          <li>Απογευματινές παραδόσεις (μετά τις 17:00)</li>
+          <li>Παραδόσεις Σάββατο</li>
+          <li>Παραδόσεις επόμενης μέρας</li>
+          <li>Πρωινές παραδόσεις (έως τις 10:00 ή 12:00)</li>
+          <li>Παραδόσεις κατόπιν ραντεβού</li>
+          <li>Παραδόσεις Κυριακή & Αργίες</li>
+        </ul>
+      </div>
+
+      <div class="service-group">
+        <h4>🇬🇷 ΕΝΤΟΣ ΕΛΛΑΔΑΣ</h4>
+        <ul>
+          <li>Αυθημερόν παραδόσεις (κατόπιν συνεννόησης)</li>
+          <li>Παραδόσεις επόμενης μέρας</li>
+          <li>Πρωινές / απογευματινές παραδόσεις</li>
+          <li>Παραδόσεις κατόπιν ραντεβού</li>
+          <li>Παραδόσεις Σάββατο, Κυριακή & Αργίες</li>
+        </ul>
+      </div>
+
+      <div class="service-group">
+        <h4>🇨🇾 ΚΥΠΡΟΣ</h4>
+        <ul>
+          <li>Express: 1 έως 3 εργάσιμες ημέρες</li>
+          <li>Economy: 4 έως 7 εργάσιμες ημέρες</li>
+        </ul>
+
+        <h4>🌍 ΕΞΩΤΕΡΙΚΟ</h4>
+        <ul>
+          <li>Express: από την επόμενη εργάσιμη</li>
+          <li>Economy: 4 έως 7 εργάσιμες ημέρες</li>
+        </ul>
+      </div>
+
+      <div class="service-group">
+        <h4>🔧 Πρόσθετες Παροχές</h4>
+        <ul>
+          <li>Αντικαταβολή / είσπραξη μετρητών</li>
+          <li>Ενημέρωση μέσω E-mail & SMS</li>
+          <li>Ασφάλιση αποστολών</li>
+          <li>Υπηρεσία αερομεταφοράς</li>
+        </ul>
+      </div>
     </section>
-  
-    <!-- ✅ Παρότρυνση -->
-    <section style="text-align:center; margin-top: 50px;">
+
+    <section class="call-to-action">
       <h3>Έτοιμοι για την επόμενη σας αποστολή;</h3>
       <p>Δημιουργήστε την αποστολή σας εύκολα και γρήγορα μέσα από την πλατφόρμα μας.</p>
-      <a href="create.html" style="background:#007bff; color:#fff; padding:12px 25px; border-radius:5px; text-decoration:none; display:inline-block; margin-top:15px;">Ξεκινήστε τώρα</a>
+      <a href="create.html" class="cta-button">Ξεκινήστε τώρα</a>
     </section>
   </main>
-  
+
   <footer>
     <p>&copy; 2025 LightingForceCourier | Powered by ταχύτητα ⚡</p>
   </footer>
+
+  <script src="js/main.js"></script>
 </body>
 </html>

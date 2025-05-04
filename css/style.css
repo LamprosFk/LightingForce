@@ -1,204 +1,267 @@
+/* Global Styles */
 body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
-  background: #f9f9f9;
-  color: #333;
-  transition: background 0.3s, color 0.3s;
+  box-sizing: border-box;
+  background-color: #f8f9fa; /* Ανοιχτό φόντο */
 }
 
-body.dark {
-  background: #121212;
-  color: #fff;
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-h1, h2 {
-  margin: 0;
-  padding: 20px 0;
-  text-align: center;
-}
-
+/* Header */
 header {
-  background-color: #1e1e2f;
-  color: white;
-  padding: 10px 0;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  background-color: #343a40; /* Σκούρο φόντο για το Header */
+  padding: 20px 0;
+  color: white; /* Λευκό κείμενο */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Σκιά για να ξεχωρίζει */
 }
 
-.container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 0 20px;
+header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+header .logo {
+  font-size: 24px;
 }
 
 nav ul {
-  list-style: none;
   display: flex;
-  gap: 15px;
-  padding: 0;
-  margin: 0;
+  list-style-type: none;
+}
+
+nav ul li {
+  margin-left: 20px;
 }
 
 nav ul li a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
+  color: white; /* Λευκό κείμενο για τα links */
+  font-weight: 500;
+  font-size: 16px;
+  padding: 10px 15px;
+  display: inline-block;
+  text-transform: uppercase;
+  transition: color 0.3s ease, background-color 0.3s ease;
 }
 
-#menu-toggle, #dark-toggle {
-  background: none;
-  border: none;
+nav ul li a:hover {
   color: white;
-  font-size: 20px;
-  cursor: pointer;
+  background-color: #ffc107; /* Κίτρινο φόντο όταν περνάει το ποντίκι */
+  border-radius: 5px; /* Στρογγυλεμένες γωνίες */
 }
 
-#menu-toggle {
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, #ffc107, #ff5733); /* Κίτρινο και Κόκκινο φόντο */
+  color: white;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.hero-content h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+.cta-button {
+  background-color: #ff5733; /* Κόκκινο χρώμα για τα κουμπιά */
+  padding: 15px 30px;
+  font-size: 18px;
+  border-radius: 25px;
+  color: white;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #c1351d; /* Σκούρο κόκκινο όταν περνάει το ποντίκι */
+  transform: scale(1.05); /* Ελαφρύ μεγάλωμα του κουμπιού για εφέ */
+}
+
+/* Features Section */
+.features {
+  display: flex;
+  justify-content: center;
+  margin: 60px 20px;
+}
+
+.feature-item {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 30px;
+  margin: 0 20px;
+  text-align: center;
+  width: 200px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-item:hover {
+  transform: translateY(-10px); /* Ανύψωση όταν περνάει το ποντίκι */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Δυνατότερη σκιά */
+}
+
+.feature-item h3 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #343a40; /* Σκούρο χρώμα για τις επικεφαλίδες */
+}
+
+.feature-item p {
+  font-size: 16px;
+  color: #555;
+}
+
+/* Footer */
+footer {
+  background-color: #343a40; /* Σκούρο φόντο για το footer */
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+footer p {
+  margin: 0;
+}
+
+footer a {
+  color: #ffc107; /* Κίτρινο για τα links στο footer */
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  text-decoration: underline;
+  color: #ff5733; /* Κόκκινο όταν το link περνάει από πάνω */
+}
+.map-section {
+  margin: 60px 20px;
+  text-align: center;
+}
+
+.map-section h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #343a40; /* Σκούρο χρώμα για τον τίτλο */
+}
+
+.map-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+iframe {
+  width: 100%;
+  height: 450px;
+  border: 0;
+}
+/* ---------- Responsive Design ---------- */
+.menu-toggle {
   display: none;
 }
 
 @media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+  }
+
   nav ul {
     display: none;
     flex-direction: column;
-    background-color: #1e1e2f;
+    background-color: #343a40;
     position: absolute;
-    top: 60px;
-    right: 10px;
+    top: 70px;
+    right: 0;
     width: 200px;
-    padding: 10px;
+    padding: 20px;
+    z-index: 999;
   }
 
   nav ul.show {
-    display: flex;
-  }
-
-  #menu-toggle {
-    display: block;
+    display: flex !important;
   }
 }
-
-.hero {
-  background-image: url('images/log.jpeg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  position: relative;
-}
-
-
-.overlay {
-  background-color: rgba(0, 0, 0, 0.5);
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 20px;
-}
-
-.hero-content {
-  max-width: 700px;
-  text-align: center;
-}
-
-.search-section {
-  margin-top: 30px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.search-box {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-
-.search-box input {
-  padding: 10px;
-  font-size: 16px;
-  width: 60%;
-  max-width: 300px;
-}
-
-.search-box button {
-  padding: 10px 20px;
-  background: #007bff;
-  color: white;
+/* ---------- Theme Toggle Button ---------- */
+.theme-toggle {
+  background: none;
   border: none;
+  color: white;
+  font-size: 22px;
   cursor: pointer;
-  border-radius: 5px;
+  margin-left: 20px;
 }
 
-footer {
-  text-align: center;
-  background: #1e1e2f;
-  color: white;
-  padding: 20px;
+/* ---------- Dark Theme ---------- */
+body[data-theme="dark"] {
+  background-color: #121212;
+  color: #f1f1f1;
 }
 
-body.dark footer,
-body.dark nav ul {
-  background: #1e1e2f;
+body[data-theme="dark"] header,
+body[data-theme="dark"] footer {
+  background-color: #1f1f1f;
 }
 
-body.dark nav ul li a {
-  color: #fff;
-}
-.choose-us, .home-services, .how-it-works, .call-to-action {
-  padding: 60px 20px;
-  text-align: center;
+body[data-theme="dark"] nav ul li a:hover {
+  background-color: #ff5733;
 }
 
-.choose-grid, .steps-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  margin-top: 30px;
+body[data-theme="dark"] .hero {
+  background: linear-gradient(135deg, #1c1c1c, #333);
 }
 
-.choose-box, .step-box {
-  background: white;
-  border: 1px solid #ddd;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  flex: 1 1 calc(33% - 40px);
-  min-width: 250px;
+body[data-theme="dark"] .feature-item {
+  background-color: #222;
+  border-color: #444;
+  color: #f1f1f1;
 }
 
-.service-links {
-  margin-top: 30px;
+body[data-theme="dark"] .feature-item h3 {
+  color: #ffc107;
 }
 
-.service-button, .cta-button {
-  background: #007bff;
-  color: white;
-  padding: 12px 24px;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
-  display: inline-block;
-  margin-top: 20px;
+body[data-theme="dark"] footer a {
+  color: #ffc107;
 }
 
-.call-to-action {
-  background: linear-gradient(to right, #007bff, #0056b3);
-  color: white;
+/* Ensure all elements use border-box */
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
-.call-to-action h2 {
-  margin-bottom: 20px;
+/* Standard input styling to prevent overflow */
+input,
+textarea,
+select {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  display: block;
+}
+
+/* Containers like forms should not allow overflow */
+form {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 15px;
 }

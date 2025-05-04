@@ -3,105 +3,82 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LightingForceCourier</title>
-  <link rel="stylesheet" href="css/style.css" /> 
-  <script defer src="js/script.js"></script>
+  <title>LightingForce Courier</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <header>
-    <div class="container">
-      <h1 class="logo">⚡ LightingForceCourier</h1>
-      <button id="menu-toggle">☰</button>
-      <nav>
-        <ul>
-          <li><a href="index.html">Αρχική</a></li>
-          <li><a href="services.html">Υπηρεσίες</a></li>
-          <li><a href="pricing.html">Τιμές</a></li>
-          <li><a href="track.html">Εντοπισμός</a></li>
-          <li><a href="create.html">Δημιουργία Αποστολής</a></li>
-          <li><a href="contact.html">Επικοινωνία</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<!-- Header -->
+<header>
+  <div class="container">
+    <h1 class="logo">⚡ LightingForce Courier</h1>
+    <button class="menu-toggle" aria-label="Άνοιγμα Μενού">☰</button>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Εναλλαγή Θέματος">🌙</button>
+    <nav>
+      <ul>
+        <li><a href="index.html">Αρχική</a></li>
+        <li><a href="services.html">Υπηρεσίες</a></li>
+        <li><a href="pricing.html">Τιμές</a></li>
+        <li><a href="track.html">Εντοπισμός</a></li>
+        <li><a href="create.html">Δημιουργία Αποστολής</a></li>
+        <li><a href="contact.html">Επικοινωνία</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-  <section id="hero" class="hero">
-    <div class="overlay">
-      <div class="hero-content">
-        <h2>Γρήγορες & Ασφαλείς Αποστολές</h2>
-        <p>Είμαστε δίπλα σας κάθε μέρα, παντού στην Ελλάδα και στο εξωτερικό!</p>
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-content">
+    <h2>Στείλτε τα πακέτα σας με ασφάλεια και ταχύτητα</h2>
+    <p>Η LightningForce Courier προσφέρει γρήγορες και ασφαλείς υπηρεσίες αποστολής σε όλη την Ελλάδα και διεθνώς.</p>
+    <a href="services.html" class="cta-button">Μάθετε Περισσότερα</a>
+  </div>
+</section>
 
-        <div class="search-section">
-          <div class="search-box">
-            <input type="text" id="tracking-number" placeholder="Αριθμός αποστολής" />
-            <button onclick="searchTracking()">Αναζήτηση</button>
-          </div>
+<!-- Features Section -->
+<section class="features">
+  <div class="feature-item">
+    <h3>Ταχύτητα</h3>
+    <p>Η αποστολή σας φτάνει στον προορισμό της γρήγορα και με ασφάλεια.</p>
+  </div>
+  <div class="feature-item">
+    <h3>Ασφάλεια</h3>
+    <p>Διασφαλίζουμε την ασφάλεια των αποστολών με υψηλής ποιότητας συσκευασίες και παρακολούθηση.</p>
+  </div>
+  <div class="feature-item">
+    <h3>Διεθνείς Αποστολές</h3>
+    <p>Αποστείλετε τα πακέτα σας σε όλο τον κόσμο με πλήρη παρακολούθηση.</p>
+  </div>
+</section>
 
-          <div class="search-box">
-            <input type="text" id="zip" placeholder="Εισάγετε Τ.Κ." />
-            <button onclick="findStore()">Βρες κατάστημα</button>
-          </div>
-        </div>
+<!-- Google Map Section -->
+<section class="map-section">
+  <h3>Βρείτε τα καταστήματά μας</h3>
+  <div id="map" style="height: 450px; width: 100%;"></div> <!-- Χάρτης -->
+</section>
 
-        <p id="tracking-result" style="margin-top: 15px;"></p>
-        <p id="store-result" style="margin-top: 5px;"></p>
-      </div>
-    </div>
-  </section>
+<!-- Footer -->
+<footer>
+  <div class="footer-content">
+    <p>&copy; 2025 LightingForce Courier. Όλα τα δικαιώματα διατηρούνται.</p>
+    <p><a href="contact.html">Επικοινωνία</a></p>
+  </div>
+</footer>
 
-  <section class="choose-us">
-    <h2>Γιατί να μας επιλέξετε</h2>
-    <div class="choose-grid">
-      <div class="choose-box">
-        <h3>🚀 Ταχύτητα</h3>
-        <p>Αποστολές σε χρόνο ρεκόρ, εντός και εκτός Ελλάδας.</p>
-      </div>
-      <div class="choose-box">
-        <h3>🔒 Ασφάλεια</h3>
-        <p>Ασφαλής διακίνηση και παρακολούθηση της αποστολής σας.</p>
-      </div>
-      <div class="choose-box">
-        <h3>💬 Υποστήριξη</h3>
-        <p>Εξυπηρέτηση πελατών 24/7 για κάθε σας ανάγκη.</p>
-      </div>
-    </div>
-  </section>
+<!-- Google Map JavaScript για την αρχικοποίηση -->
+<script>
+  function initMap() {
+    var mapOptions = {
+      center: { lat: 37.9838, lng: 23.7275 }, // Αθήνα
+      zoom: 12, // Ζουμ
+    };
 
-  <section class="home-services">
-    <h2>Οι Υπηρεσίες μας</h2>
-    <p style="text-align:center; max-width:700px; margin:0 auto 30px;">
-      Από αυθημερόν παραδόσεις εντός πόλης μέχρι express αποστολές εξωτερικού!
-    </p>
-    <div class="service-links">
-      <a href="services.html" class="service-button">Μάθετε περισσότερα</a>
-    </div>
-  </section>
-
-  <section class="how-it-works">
-    <h2>Πώς λειτουργεί</h2>
-    <div class="steps-grid">
-      <div class="step-box">
-        <h3>1️⃣ Δημιουργία Αποστολής</h3>
-        <p>Καταχωρήστε εύκολα τα στοιχεία του πακέτου σας.</p>
-      </div>
-      <div class="step-box">
-        <h3>2️⃣ Παράδοση</h3>
-        <p>Παραλαβή και άμεση αποστολή από το δίκτυό μας.</p>
-      </div>
-      <div class="step-box">
-        <h3>3️⃣ Επιβεβαίωση</h3>
-        <p>Παρακολούθηση & ειδοποίηση για την ολοκλήρωση της αποστολής.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="call-to-action">
-    <h2>Ξεκινήστε σήμερα με τη LightingForceCourier!</h2>
-    <a href="create.html" class="cta-button">Δημιουργήστε Αποστολή</a>
-  </section>
-  
-  <footer>
-    <p>&copy; 2025 LightingForceCourier | Powered by ταχύτητα ⚡</p>
-  </footer>
+    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+  }
+</script>
+<!-- Ενσωμάτωση Google Maps API με async και defer για καλύτερη απόδοση -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlx8IedJupc1HzH4H7NwIYc2VZ27Ztykw&callback=initMap" async defer></script>
+<script src="js/main.js"></script>
 </body>
 </html>
