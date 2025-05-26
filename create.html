@@ -11,7 +11,7 @@
 
 <header>
   <div class="container">
-    <h1 class="logo">⚡ LightingForceCourier</h1>
+    <h1 class="logo">⚡LightingForce Courier</h1>
     <button class="menu-toggle" aria-label="Μενού">☰</button>
   <button id="theme-toggle" class="theme-toggle" aria-label="Θέμα">🌙</button>
     <nav>
@@ -22,6 +22,7 @@
         <li><a href="track.html">Εντοπισμός</a></li>
         <li><a href="create.html">Δημιουργία Αποστολής</a></li>
         <li><a href="contact.html">Επικοινωνία</a></li>
+        <li><a href="admin.html" class="admin-link">Admin</a></li>
       </ul>
     </nav>
   </div>
@@ -30,7 +31,7 @@
 <main class="create">
   <h2>Δημιουργία Νέας Αποστολής</h2>
 
-  <form id="create-form" class="create-form">
+  <form id="create-form" class="create-form" action="php/delivery/submit.php" method="POST">
 
     <h3>Στοιχεία Αποστολέα</h3>
     <input type="text" name="sender" placeholder="Όνομα Αποστολέα" required>
@@ -49,17 +50,17 @@
     <h3>Λεπτομέρειες Αποστολής</h3>
     <div class="form-group">
       <label>Τύπος Αποστολής:</label>
-      <select id="service-type" required>
-        <option value="0">Economy (0€)</option>
-        <option value="5">Express (+5€)</option>
+      <select name="service-type" id="service-type" required>
+        <option value="Standard">Standard</option>
+        <option value="Express">Express</option>
       </select>
     </div>
 
     <div class="form-group">
       <label>Πρόσθετες Υπηρεσίες:</label><br>
-      <input type="checkbox" id="cod" value="2"> Αντικαταβολή (+2€)<br>
-      <input type="checkbox" id="insurance" value="1"> Ασφάλιση (+1€)<br>
-      <input type="checkbox" id="sms" value="0.5"> Ειδοποίηση SMS (+0.5€)
+      <input type="checkbox" name="cod" id="cod" value="1"> Αντικαταβολή (+2€)<br>
+      <input type="checkbox" name="insurance" id="insurance" value="1"> Ασφάλιση (+1€)<br>
+      <input type="checkbox" name="sms" id="sms" value="1"> Ειδοποίηση SMS (+0.5€)
     </div>
 
     <!-- Κουμπί Υπολογισμού -->

@@ -8,13 +8,98 @@ document.addEventListener('DOMContentLoaded', function () {
   const recipientZipInput = document.querySelector('input[name="zip"]');
   const recipientCityInput = document.querySelector('input[name="city"]');
 
-  form.addEventListener('submit', function (e) {
+  // Calculate cost function
+  window.calculateCost = async function() {
+    const senderZip = senderZipInput.value.trim();
+    const recipientZip = recipientZipInput.value.trim();
+
+    if (!senderZip || !recipientZip) {
+      alert("Παρακαλώ εισάγετε και τους δύο Τ.Κ.");
+      return;
+    }
+
+    if (!isValidGreekZip(senderZip)) {
+      costResult.innerText = "❌ Μη έγκυρος Τ.Κ. Αποστολέα.";
+      return;
+    }
+
+    if (!isValidGreekZip(recipientZip)) {
+      costResult.innerText = "❌ Μη έγκυρος Τ.Κ. Παραλήπτη.";
+      return;
+    }
+
+    costResult.innerText = "🔄 Υπολογισμός κόστους...";
+    costResult.classList.add('loading-text');
+
+    const senderCity = await getCityFromZip(senderZip);
+    const recipientCity = await getCityFromZip(recipientZip);
+
+    if (!senderCity || !recipientCity) {
+      costResult.innerText = "❌ Δεν βρέθηκαν πληροφορίες για τους Τ.Κ.";
+      costResult.classList.remove('loading-text');
+      return;
+    }
+
+    let baseCost = 0;
+    const serviceType = document.getElementById('service-type').value;
+
+    if (senderCity.country !== "GR" || recipientCity.country !== "GR") {
+      baseCost = 15; // Εξωτερικό
+    } else if (senderCity.locality === recipientCity.locality) {
+      baseCost = 3; // Εντός Πόλης
+    } else {
+      baseCost = 5; // Εντός Ελλάδας
+    }
+
+    let total = baseCost;
+    if (serviceType === 'Express') total += 5;
+    if (document.getElementById('cod').checked) total += 2;
+    if (document.getElementById('insurance').checked) total += 1;
+    if (document.getElementById('sms').checked) total += 0.5;
+
+    costResult.innerHTML = `
+      Αποστολή από: <strong>${senderCity.locality}</strong> ➔ <strong>${recipientCity.locality}</strong><br>
+      Εκτιμώμενο Κόστος: <span style="color: green;">${total.toFixed(2)}€</span>
+    `;
+    costResult.classList.remove('loading-text');
+
+    await updateMap(senderZip, recipientZip);
+  };
+
+  // Handle form submission
+  form.addEventListener('submit', function(e) {
     e.preventDefault();
-    const trackingCode = generateTrackingCode();
-    result.innerHTML = `✅ Η αποστολή σας καταχωρήθηκε επιτυχώς!<br>📦 Κωδικός Αποστολής: <strong>${trackingCode}</strong>`;
+
+    // Show loading state
+    result.innerHTML = '<div class="loading">Καταχώρηση σε εξέλιξη...</div>';
+
+    // Create FormData object
+    const formData = new FormData(form);
+
+    // Submit form data
+    fetch('php/delivery/submit.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            result.innerHTML = `
+                <div class="success">
+                    ✅ ${data.message}<br>
+                    📦 Κωδικός Αποστολής: <strong>${data.tracking_id}</strong>
+                </div>`;
     form.reset();
-    costResult.innerText = '';
+            costResult.textContent = '';
     clearMap();
+        } else {
+            result.innerHTML = `<div class="error">❌ ${data.error}</div>`;
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        result.innerHTML = `<div class="error">❌ Σφάλμα κατά την καταχώρηση: ${error.message}</div>`;
+    });
   });
 
   // Αυτόματη συμπλήρωση πόλης
@@ -48,77 +133,6 @@ document.addEventListener('DOMContentLoaded', function () {
 // ➔ Έλεγχος εγκυρότητας Τ.Κ.
 function isValidGreekZip(zip) {
   return /^\d{5}$/.test(zip);
-}
-
-// ➔ Υπολογισμός Κόστους
-async function calculateCost() {
-  const senderZip = document.querySelector('input[name="sender-zip"]').value.trim();
-  const recipientZip = document.querySelector('input[name="zip"]').value.trim();
-  const costResult = document.getElementById('cost-result');
-
-  if (!senderZip || !recipientZip) {
-    alert("Παρακαλώ εισάγετε και τους δύο Τ.Κ.");
-    return;
-  }
-
-  if (!isValidGreekZip(senderZip)) {
-    costResult.innerText = "❌ Μη έγκυρος Τ.Κ. Αποστολέα.";
-    return;
-  }
-
-  if (!isValidGreekZip(recipientZip)) {
-    costResult.innerText = "❌ Μη έγκυρος Τ.Κ. Παραλήπτη.";
-    return;
-  }
-
-  costResult.innerText = "🔄 Υπολογισμός κόστους...";
-  costResult.classList.add('loading-text');
-
-  const senderCity = await getCityFromZip(senderZip);
-  const recipientCity = await getCityFromZip(recipientZip);
-
-  if (!senderCity || !recipientCity) {
-    costResult.innerText = "❌ Δεν βρέθηκαν πληροφορίες για τους Τ.Κ.";
-    costResult.classList.remove('loading-text');
-    return;
-  }
-
-  let baseCost = 0;
-  let serviceType = parseFloat(document.getElementById('service-type').value);
-
-  if (senderCity.country !== "GR" || recipientCity.country !== "GR") {
-    baseCost = 15; // Εξωτερικό
-  } else if (senderCity.locality === recipientCity.locality) {
-    baseCost = 3; // Εντός Πόλης
-  } else {
-    baseCost = 5; // Εντός Ελλάδας
-  }
-
-  let total = baseCost + serviceType;
-
-  if (document.getElementById('cod').checked) {
-    total += parseFloat(document.getElementById('cod').value);
-  }
-  if (document.getElementById('insurance').checked) {
-    total += parseFloat(document.getElementById('insurance').value);
-  }
-  if (document.getElementById('sms').checked) {
-    total += parseFloat(document.getElementById('sms').value);
-  }
-
-  costResult.innerHTML = `
-    Αποστολή από: <strong>${senderCity.locality}</strong> ➔ <strong>${recipientCity.locality}</strong><br>
-    Εκτιμώμενο Κόστος: <span style="color: green;">${total.toFixed(2)}€</span>
-  `;
-  costResult.classList.remove('loading-text');
-
-  await updateMap(senderZip, recipientZip);
-}
-
-// ➔ Δημιουργία Tracking Code
-function generateTrackingCode() {
-  const randomPart = Math.floor(100 + Math.random() * 900);
-  return `023${randomPart}`;
 }
 
 // ➔ Λήψη Πόλης και Συντεταγμένων από Zip μέσω Geocoding API
@@ -174,15 +188,12 @@ async function getCityFromZip(zip) {
       return { locality, country, lat, lng };
     }
 
-    // Αν δεν βρούμε τίποτα σε καμία περίπτωση
-    console.error("Δεν βρέθηκαν πληροφορίες για το Τ.Κ.");
     return null;
   } catch (error) {
     console.error("Σφάλμα στο fetch:", error);
     return null;
   }
 }
-
 
 // ➔ Google Maps
 let map;

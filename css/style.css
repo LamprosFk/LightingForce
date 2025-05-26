@@ -213,7 +213,7 @@ iframe {
 /* ---------- Dark Theme ---------- */
 body[data-theme="dark"] {
   background-color: #121212;
-  color: #f1f1f1;
+  color: #e0e0e0;
 }
 
 body[data-theme="dark"] header,
@@ -221,26 +221,64 @@ body[data-theme="dark"] footer {
   background-color: #1f1f1f;
 }
 
+body[data-theme="dark"] nav ul li a {
+  color: #e0e0e0;
+}
+
 body[data-theme="dark"] nav ul li a:hover {
   background-color: #ff5733;
+  color: #ffffff;
 }
 
 body[data-theme="dark"] .hero {
   background: linear-gradient(135deg, #1c1c1c, #333);
 }
 
+body[data-theme="dark"] .hero-content h2,
+body[data-theme="dark"] .hero-content p {
+  color: #e0e0e0;
+}
+
 body[data-theme="dark"] .feature-item {
   background-color: #222;
   border-color: #444;
-  color: #f1f1f1;
+  color: #e0e0e0;
 }
 
 body[data-theme="dark"] .feature-item h3 {
   color: #ffc107;
 }
 
+body[data-theme="dark"] .feature-item p {
+  color: #e0e0e0;
+}
+
 body[data-theme="dark"] footer a {
   color: #ffc107;
+}
+
+body[data-theme="dark"] .map-section h3 {
+  color: #ffc107;
+}
+
+body[data-theme="dark"] .info-window {
+  background-color: #ffffff;
+  border: none;
+}
+
+body[data-theme="dark"] .info-window h3 {
+  color: #000000;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+body[data-theme="dark"] .info-window p {
+  color: #000000;
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 4px 0;
+  font-weight: 500;
 }
 
 /* Ensure all elements use border-box */
@@ -264,4 +302,274 @@ form {
   max-width: 600px;
   margin: 0 auto;
   padding: 0 15px;
+}
+
+/* Map Info Window Styles */
+.info-window {
+    padding: 10px;
+    max-width: 300px;
+    font-family: 'Roboto', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background-color: #ffffff;
+    border: none;
+}
+
+.info-window h3 {
+    margin: 0 0 10px 0;
+    color: #000000;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.info-window p {
+    margin: 5px 0;
+    color: #000000;
+    font-size: 15px;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+/* Map Container */
+#map {
+    height: 500px;
+    width: 100%;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Tablet and smaller desktops */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+
+    .store-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 20px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .hero-content {
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .cta-buttons a {
+        width: 100%;
+        text-align: center;
+    }
+
+    .store-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .store-card {
+        margin: 0;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-row {
+        flex-direction: column;
+    }
+
+    .form-row .form-group {
+        width: 100%;
+    }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .store-card {
+        padding: 15px;
+    }
+
+    .store-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .store-card p {
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+
+    .form-group label {
+        font-size: 0.9rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+}
+
+/* Small mobile phones */
+@media (max-width: 320px) {
+    .hero-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .section-title {
+        font-size: 1.3rem;
+    }
+
+    .store-card {
+        padding: 10px;
+    }
+
+    .btn {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Add hamburger menu styles */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 10px;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+}
+
+/* Add smooth transitions */
+.nav-links {
+    transition: all 0.3s ease;
+}
+
+/* Improve form responsiveness */
+.form-container {
+    max-width: 100%;
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    .form-container {
+        padding: 15px;
+    }
+}
+
+/* Improve table responsiveness */
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Improve button touch targets on mobile */
+@media (max-width: 768px) {
+    .btn {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* Improve input touch targets on mobile */
+@media (max-width: 768px) {
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="password"],
+    select,
+    textarea {
+        min-height: 44px;
+    }
+}
+
+/* Add this to your existing styles */
+.admin-link {
+    background-color: #ffc107;
+    color: #343a40 !important;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.admin-link:hover {
+    background-color: #ffb300;
+    color: #343a40 !important;
+}
+
+/* Dark theme admin link */
+body[data-theme="dark"] .admin-link {
+    background-color: #ffc107;
+    color: #343a40 !important;
+}
+
+body[data-theme="dark"] .admin-link:hover {
+    background-color: #ffb300;
+    color: #343a40 !important;
 }

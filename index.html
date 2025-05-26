@@ -11,7 +11,7 @@
 <!-- Header -->
 <header>
   <div class="container">
-    <h1 class="logo">⚡ LightingForce Courier</h1>
+    <h1 class="logo">⚡LightingForce Courier</h1>
     <button class="menu-toggle" aria-label="Άνοιγμα Μενού">☰</button>
     <button id="theme-toggle" class="theme-toggle" aria-label="Εναλλαγή Θέματος">🌙</button>
     <nav>
@@ -22,6 +22,7 @@
         <li><a href="track.html">Εντοπισμός</a></li>
         <li><a href="create.html">Δημιουργία Αποστολής</a></li>
         <li><a href="contact.html">Επικοινωνία</a></li>
+        <li><a href="admin.html" class="admin-link">Admin</a></li>
       </ul>
     </nav>
   </div>
@@ -69,12 +70,64 @@
 <!-- Google Map JavaScript για την αρχικοποίηση -->
 <script>
   function initMap() {
-    var mapOptions = {
-      center: { lat: 37.9838, lng: 23.7275 }, // Αθήνα
-      zoom: 12, // Ζουμ
+    // Create map centered on Greece
+    const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 7,
+        center: { lat: 39.0742, lng: 21.8243 }, // Center of Greece
+        styles: [
+            {
+                featureType: "poi",
+                elementType: "labels",
+                stylers: [{ visibility: "off" }]
+            }
+        ]
+    });
+
+    // Custom lightning bolt icon
+    const lightningIcon = {
+        path: "M12 2L8 10H12L8 22L16 14H12L16 2Z",
+        fillColor: "#FFC107",
+        fillOpacity: 1,
+        strokeWeight: 1,
+        strokeColor: "#343A40",
+        scale: 1.5,
+        anchor: new google.maps.Point(12, 12)
     };
 
-    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+    // Fetch store locations
+    fetch('php/stores/get_stores.php')
+        .then(response => response.json())
+        .then(stores => {
+            stores.forEach(store => {
+                const marker = new google.maps.Marker({
+                    position: { lat: parseFloat(store.latitude), lng: parseFloat(store.longitude) },
+                    map: map,
+                    title: store.name,
+                    icon: lightningIcon,
+                    animation: google.maps.Animation.DROP
+                });
+
+                // Create info window content
+                const content = `
+                    <div class="info-window">
+                        <h3>${store.name}</h3>
+                        <p>${store.address}</p>
+                        <p>${store.postal_code}</p>
+                        <p>${store.hours}</p>
+                    </div>
+                `;
+
+                const infoWindow = new google.maps.InfoWindow({
+                    content: content
+                });
+
+                // Add click listener to marker
+                marker.addListener("click", () => {
+                    infoWindow.open(map, marker);
+                });
+            });
+        })
+        .catch(error => console.error('Error loading stores:', error));
   }
 </script>
 <!-- Ενσωμάτωση Google Maps API με async και defer για καλύτερη απόδοση -->

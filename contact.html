@@ -11,7 +11,7 @@
 
 <header>
   <div class="container">
-    <h1 class="logo">⚡ LightingForceCourier</h1>
+    <h1 class="logo">⚡ LightingForce Courier</h1>
     <button class="menu-toggle" aria-label="Μενού">☰</button>
   <button id="theme-toggle" class="theme-toggle" aria-label="Θέμα">🌙</button>
     <nav>
@@ -22,6 +22,7 @@
         <li><a href="track.html">Εντοπισμός</a></li>
         <li><a href="create.html">Δημιουργία Αποστολής</a></li>
         <li><a href="contact.html">Επικοινωνία</a></li>
+        <li><a href="admin.html" class="admin-link">Admin</a></li>
       </ul>
     </nav>
   </div>
@@ -32,7 +33,7 @@
 
   <!-- Φόρμα επικοινωνίας -->
   <section class="contact-form">
-    <form id="contact-form">
+    <form id="contact-form" action="php/contact/submit_contact.php" method="POST">
       <label for="name">Όνομα:</label>
       <input type="text" id="name" name="name" placeholder="Πληκτρολογήστε το όνομά σας" required />
 
@@ -44,6 +45,7 @@
 
       <button type="submit" class="cta-button">Αποστολή</button>
     </form>
+    <div id="contact-result" class="form-result"></div>
   </section>
 
   <!-- Στοιχεία επικοινωνίας -->
@@ -84,10 +86,11 @@
   <!-- Newsletter -->
   <section class="newsletter">
     <h3>Εγγραφείτε στο Newsletter μας</h3>
-    <form>
-      <input type="email" placeholder="Εισάγετε το email σας" required>
+    <form id="newsletter-form" action="php/newsletter/submit_newsletter.php" method="POST">
+      <input type="email" name="email" placeholder="Εισάγετε το email σας" required>
       <button type="submit" class="cta-button">Εγγραφή</button>
     </form>
+    <div id="newsletter-result" class="form-result"></div>
   </section>
 
   <!-- Πληροφορίες για την Εταιρεία -->
